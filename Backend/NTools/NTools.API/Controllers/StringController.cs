@@ -1,6 +1,7 @@
 ﻿using Core.Domain;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using NTools.Domain.Interfaces.Services;
 using NTools.DTO.Domain;
 using NTools.DTO.MailerSend;
@@ -13,19 +14,29 @@ namespace BazzucaMedia.API.Controllers
     [ApiController]
     public class StringController : ControllerBase
     {
+        private readonly ILogger<StringController> _logger;
+
+        public StringController(ILogger<StringController> logger)
+        {
+            _logger = logger;
+        }
+
         [HttpGet("generateSlug/{name}")]
         public ActionResult<StringResult> GenerateSlug(string name)
         {
             try
             {
+                var slug = SlugHelper.GenerateSlug(name);
+                _logger.LogInformation("Generate Slug '{0}' from string '{1}'", slug, name);
                 return new StringResult
                 {
                     Sucesso = true,
-                    Value = SlugHelper.GenerateSlug(name)
+                    Value = slug
                 };
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, ex.Message);
                 return StatusCode(500, ex.Message);
             }
         }
@@ -35,6 +46,8 @@ namespace BazzucaMedia.API.Controllers
         {
             try
             {
+                var onlyNumber = StringUtils.OnlyNumbers(input);
+                _logger.LogInformation("Extract only numbers `{0}` from {1}", onlyNumber, input);
                 return new StringResult
                 {
                     Sucesso = true,
@@ -43,6 +56,7 @@ namespace BazzucaMedia.API.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, ex.Message);
                 return StatusCode(500, ex.Message);
             }
         }
@@ -52,6 +66,8 @@ namespace BazzucaMedia.API.Controllers
         {
             try
             {
+                var uniqueStr = StringUtils.GenerateShortUniqueString();
+                _logger.LogInformation("Generate short unique string: `{0}`", uniqueStr);
                 return new StringResult
                 {
                     Sucesso = true,
@@ -60,6 +76,7 @@ namespace BazzucaMedia.API.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, ex.Message);
                 return StatusCode(500, ex.Message);
             }
         }
