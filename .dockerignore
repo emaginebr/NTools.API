@@ -1,25 +1,89 @@
-**/.classpath
-**/.dockerignore
-**/.env
+# Git files
 **/.git
 **/.gitignore
+**/.gitattributes
+
+# IDE and Editor files
+**/.vs
+**/.vscode
+**/.idea
+**/*.swp
+**/*.swo
+**/*~
+
+# Build outputs
+**/bin
+**/obj
+**/out
+**/TestResults
+
+# NuGet
+**/*.nupkg
+**/.nuget
+**/packages
+
+# Project files
+**/.classpath
 **/.project
 **/.settings
 **/.toolstarget
-**/.vs
-**/.vscode
 **/*.*proj.user
 **/*.dbmdl
 **/*.jfm
-**/azds.yaml
-**/bin
-**/charts
-**/docker-compose*
+
+# Docker files (avoid recursion)
 **/Dockerfile*
-**/node_modules
-**/npm-debug.log
-**/obj
+**/docker-compose*
+**/.dockerignore
+
+# Environment and secrets
+**/.env
+**/.env.*
+**/appsettings.Development.json
+**/appsettings.Local.json
 **/secrets.dev.yaml
 **/values.dev.yaml
-LICENSE
-README.md
+**/*.pfx
+**/*.p12
+**/*.key
+**/*.pem
+
+# Azure/Cloud deployment files
+**/azds.yaml
+**/charts
+
+# Test files
+**/NTools.Tests/**
+
+# Documentation and misc
+**/README.md
+**/LICENSE
+**/CHANGELOG.md
+**/*.md
+**/docs/**
+
+# Node modules (if any frontend)
+**/node_modules
+**/npm-debug.log
+**/yarn-error.log
+
+# OS files
+**/.DS_Store
+**/Thumbs.db
+
+# Logs and temporary files
+**/logs
+**/*.log
+**/tmp
+**/temp
+
+# Database files
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+
+# User-specific files
+**/*.user
+**/*.suo
+**/*.userosscache
+**/*.sln.docstates
