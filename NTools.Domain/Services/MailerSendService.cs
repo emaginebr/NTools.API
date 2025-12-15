@@ -34,9 +34,9 @@ namespace NTools.Domain.Services
                     var msgErro = JsonConvert.DeserializeObject<MailerErrorInfo>(errorStr);
                     if (msgErro != null && !string.IsNullOrEmpty(msgErro.Message))
                     {
-                        throw new Exception(msgErro.Message);
+                        throw new InvalidOperationException(msgErro.Message);
                     }
-                    throw new Exception("Unknown error");
+                    throw new InvalidOperationException("Unknown error");
                 }
             }
             return await Task.FromResult(true);

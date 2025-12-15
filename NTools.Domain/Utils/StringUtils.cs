@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NTools.Domain.Utils
 {
-    public class StringUtils
+    public static class StringUtils
     {
 
         private const string BASE62_CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";

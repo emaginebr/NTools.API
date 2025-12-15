@@ -26,7 +26,7 @@ namespace BazzucaMedia.API.Controllers
         {
             try
             {
-                _logger.LogInformation("Sending email to {0}, subject: {1}", mail.To, mail.Subject);
+                _logger.LogInformation("Sending email to {To}, subject: {Subject}", mail.To, mail.Subject);
                 return Ok(await _mailService.Sendmail(mail));
             }
             catch (Exception ex)
@@ -41,7 +41,7 @@ namespace BazzucaMedia.API.Controllers
         {
             try
             {
-                _logger.LogInformation("Verify if email {0} is valid", email);
+                _logger.LogInformation("Verify if email {Email} is valid", email);
                 var isValid = EmailValidator.IsValidEmail(email);
                 _logger.LogInformation(isValid ? "Is a valid email" : "Is not a valid email");
                 return Ok(isValid);

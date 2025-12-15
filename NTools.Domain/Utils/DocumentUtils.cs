@@ -2,7 +2,7 @@
 {
     using System.Text.RegularExpressions;
 
-    public class DocumentoUtils
+    public static class DocumentoUtils
     {
         public static bool ValidarCpfOuCnpj(string documento)
         {

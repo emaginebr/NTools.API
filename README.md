@@ -1,5 +1,29 @@
 # NTools API - Docker Guide
 
+## Configuração de Variáveis de Ambiente
+
+Antes de executar a aplicação, você precisa configurar as variáveis de ambiente:
+
+1. Copie o arquivo `.env.example` para `.env`:
+    ```bash
+    cp .env.example .env
+    ```
+
+2. Edite o arquivo `.env` e preencha com suas credenciais reais:
+    ```bash
+    # MailerSend Configuration
+    MAILERSEND__MAILSENDER=seu-email@exemplo.com
+    MAILERSEND__APIURL=https://api.mailersend.com/v1/email
+    MAILERSEND__APITOKEN=seu-token-mailersend
+
+    # DigitalOcean Spaces (S3) Configuration
+    S3__ACCESSKEY=sua-access-key-digitalocean
+    S3__SECRETKEY=sua-secret-key-digitalocean
+    S3__ENDPOINT=https://seu-space.nyc3.digitaloceanspaces.com
+    ```
+
+    ?? **IMPORTANTE**: Nunca commite o arquivo `.env` com credenciais reais. Apenas o `.env.example` deve ser versionado.
+
 ## Comando para subir o SQL Server no docker
 ```
 docker compose -f .\sql_server_compose.yml up -d

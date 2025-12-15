@@ -22,7 +22,7 @@ namespace NTools.ACL
             var response = await _httpClient.GetAsync($"{_ntoolSetting.Value.ApiUrl}/File/{bucketName}/getFileUrl/{fileName}");
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<string>(json);
+            return JsonConvert.DeserializeObject<string>(json) ?? string.Empty;
         }
 
         public async Task<string> UploadFileAsync(string bucketName, IFormFile file)
@@ -37,7 +37,7 @@ namespace NTools.ACL
                     var response = await _httpClient.PostAsync($"{_ntoolSetting.Value.ApiUrl}/File/{bucketName}/uploadFile", formData);
                     response.EnsureSuccessStatusCode();
                     var json = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<string>(json);
+                    return JsonConvert.DeserializeObject<string>(json) ?? string.Empty;
                 }
             }
         }

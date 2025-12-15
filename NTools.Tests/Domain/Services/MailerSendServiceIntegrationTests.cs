@@ -41,14 +41,14 @@ namespace NTools.Tests.Domain.Services
                     Email = "original@test.com",
                     Name = "Original Sender"
                 },
-                To = new List<MailerRecipientInfo>
-                {
+                To =
+                [
                     new MailerRecipientInfo
                     {
                         Email = "recipient@test.com",
                         Name = "Test Recipient"
                     }
-                },
+                ],
                 Subject = "Integration Test Email",
                 Text = "This is a test email",
                 Html = "<h1>Test Email</h1><p>This is a test email</p>"
@@ -239,21 +239,17 @@ namespace NTools.Tests.Domain.Services
         [InlineData("", false)]
         public void Email_Validation_Concept(string email, bool expectedValid)
         {
-            // This test demonstrates email validation logic that could be added
-            // Arrange
-            var recipient = new MailerRecipientInfo { Email = email };
-
             // Act
-            var isValid = !string.IsNullOrEmpty(email) && email.Contains("@") && email.Contains(".");
+            var isValid = !string.IsNullOrEmpty(email) && email.Contains('@') && email.Contains('.');
 
             // Assert
             if (expectedValid)
             {
-                Assert.True(isValid || email.Contains("@"));
+                Assert.True(isValid || email.Contains('@'));
             }
             else
             {
-                Assert.False(email.Contains("@") && email.Contains("."));
+                Assert.False(email.Contains('@') && email.Contains('.'));
             }
         }
     }

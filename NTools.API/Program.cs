@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace NTools.API
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
@@ -24,7 +26,15 @@ namespace NTools.API
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls("http://*:80");
+                    webBuilder.ConfigureAppConfiguration((context, config) =>
+                    {
+                        var builtConfig = config.Build();
+                        var urls = builtConfig.GetValue<string>("Urls");
+                        if (!string.IsNullOrEmpty(urls))
+                        {
+                            webBuilder.UseUrls(urls);
+                        }
+                    });
                 });
     }
 }

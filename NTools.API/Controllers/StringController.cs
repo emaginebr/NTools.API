@@ -22,12 +22,12 @@ namespace BazzucaMedia.API.Controllers
             try
             {
                 var slug = SlugHelper.GenerateSlug(name);
-                _logger.LogInformation("Generate Slug '{0}' from string '{1}'", slug, name);
+                _logger.LogInformation("Generate Slug '{Slug}' from string '{Input}'", slug, name);
                 return Ok(slug);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
+                _logger.LogError(ex, "An error occurred while generating slug for input '{Input}'", name);
                 return StatusCode(500, ex.Message);
             }
         }
@@ -38,12 +38,12 @@ namespace BazzucaMedia.API.Controllers
             try
             {
                 var onlyNumber = StringUtils.OnlyNumbers(input);
-                _logger.LogInformation("Extract only numbers `{0}` from {1}", onlyNumber, input);
-                return Ok(StringUtils.OnlyNumbers(input));
+                _logger.LogInformation("Extract only numbers '{OnlyNumber}' from '{Input}'", onlyNumber, input);
+                return Ok(onlyNumber);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
+                _logger.LogError(ex, "An error occurred while extracting only numbers from input '{Input}'", input);
                 return StatusCode(500, ex.Message);
             }
         }
@@ -54,12 +54,12 @@ namespace BazzucaMedia.API.Controllers
             try
             {
                 var uniqueStr = StringUtils.GenerateShortUniqueString();
-                _logger.LogInformation("Generate short unique string: `{0}`", uniqueStr);
-                return Ok(StringUtils.GenerateShortUniqueString());
+                _logger.LogInformation("Generate short unique string: '{UniqueStr}'", uniqueStr);
+                return Ok(uniqueStr);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
+                _logger.LogError(ex, "An error occurred while generating a short unique string");
                 return StatusCode(500, ex.Message);
             }
         }

@@ -28,7 +28,7 @@ namespace NTools.Tests.Domain.Services
             _mockMailSettings.Setup(x => x.Value).Returns(_mailSetting);
         }
 
-        private MailerInfo CreateTestMailerInfo()
+        private static MailerInfo CreateTestMailerInfo()
         {
             return new MailerInfo
             {

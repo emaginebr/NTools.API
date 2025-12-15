@@ -24,14 +24,14 @@ namespace BazzucaMedia.API.Controllers
         {
             try
             {
-                _logger.LogInformation("Get File Url BucketName:{@bucketName}, Filename: {@fileName}", bucketName, fileName);
+                _logger.LogInformation("Get File Url BucketName:{BucketName}, Filename: {FileName}", bucketName, fileName);
                 var url = _fileService.GetFileUrl(bucketName, fileName);
-                _logger.LogInformation("Returned URL: {@url}", url);
+                _logger.LogInformation("Returned URL: {Url}", url);
                 return Ok(url);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
+                _logger.LogError(ex, "An error occurred while getting file URL. Exception: {Message}", ex.Message);
                 return StatusCode(500, ex.Message);
             }
         }
@@ -47,14 +47,14 @@ namespace BazzucaMedia.API.Controllers
                     _logger.LogError("No file uploaded");
                     return BadRequest("No file uploaded");
                 }
-                _logger.LogInformation("Upload file, BucketName:{0}, Filename: {1}, Size: {2}", bucketName, file.FileName, file.Length);
+                _logger.LogInformation("Upload file, BucketName:{BucketName}, Filename: {FileName}, Size: {Size}", bucketName, file.FileName, file.Length);
                 var fileName = _fileService.InsertFromStream(file.OpenReadStream(), bucketName, file.FileName);
-                _logger.LogInformation("File name: {@fileName}", fileName);
+                _logger.LogInformation("File name: {FileName}", fileName);
                 return Ok(fileName);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
+                _logger.LogError(ex, "An error occurred while uploading file. Exception: {Message}", ex.Message);
                 return StatusCode(500, ex.Message);
             }
         }

@@ -10,7 +10,14 @@ services:
       - "5000:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
-      - ASPNETCORE_URLS=http://+:80
+      - MailerSend__MailSender=${MAILERSEND__MAILSENDER}
+      - MailerSend__ApiURL=${MAILERSEND__APIURL}
+      - MailerSend__ApiToken=${MAILERSEND__APITOKEN}
+      - S3__AccessKey=${S3__ACCESSKEY}
+      - S3__SecretKey=${S3__SECRETKEY}
+      - S3__Endpoint=${S3__ENDPOINT}
+    env_file:
+      - .env
     restart: unless-stopped
     networks:
       - ntools-network

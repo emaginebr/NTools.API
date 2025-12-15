@@ -2,7 +2,7 @@
 
 namespace NTools.Domain.Utils
 {
-    public class EmailValidator
+    public static class EmailValidator
     {
         public static bool IsValidEmail(string email)
         {
