@@ -24,14 +24,14 @@ namespace NTools.ACL
 
         public async Task<string> GenerateSlugAsync(string name)
         {
-            var response = await _httpClient.GetAsync($"{_ntoolSetting.Value.ApiUrl}/String/generateSlug");
+            var response = await _httpClient.GetAsync($"{_ntoolSetting.Value.ApiUrl}/String/generateSlug/{name}");
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsStringAsync();
         }
 
         public async Task<string> OnlyNumbersAsync(string input)
         {
-            var response = await _httpClient.GetAsync($"{_ntoolSetting.Value.ApiUrl}/String/onlyNumbers");
+            var response = await _httpClient.GetAsync($"{_ntoolSetting.Value.ApiUrl}/String/onlyNumbers/{input}");
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsStringAsync();
         }
