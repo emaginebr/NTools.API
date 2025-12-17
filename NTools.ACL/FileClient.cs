@@ -22,6 +22,10 @@ namespace NTools.ACL
 
         public async Task<string> GetFileUrlAsync(string bucketName, string fileName)
         {
+            if (string.IsNullOrWhiteSpace(bucketName))
+            {
+                return string.Empty;
+            }
             var url = $"{_ntoolSetting.Value.ApiUrl}/File/{bucketName}/getFileUrl/{fileName}";
             _logger.LogInformation("Accessing URL: {Url}", url);
             
