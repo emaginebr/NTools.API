@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'NTools.DTO/**'
-      - 'NTools.ACL/**'
   workflow_dispatch:
 
 jobs:
