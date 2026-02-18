@@ -25,6 +25,7 @@ RUN dotnet publish "NTools.API.csproj" -c Release -o /app/publish /p:UseAppHost=
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
+ENV ASPNETCORE_ENVIRONMENT=Docker
 EXPOSE 8080
 
 # Create a non-root user for security
