@@ -25,7 +25,7 @@ RUN dotnet publish "NTools.API.csproj" -c Release -o /app/publish /p:UseAppHost=
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
-EXPOSE 80
+EXPOSE 8080
 
 # Create a non-root user for security
 RUN adduser --disabled-password --gecos '' --uid 1000 appuser && chown -R appuser /app

@@ -13,6 +13,31 @@ NTools API is a comprehensive RESTful API service built with .NET 8 that provide
 
 The project follows a clean architecture approach with separated layers for API, Application, Domain, and comprehensive test coverage. The ACL (Anti-Corruption Layer) and DTOs are available as separate NuGet packages.
 
+## NTools Ecosystem
+
+NTools is composed of three projects that work together. **NTools.API** is the main project, and the other two are NuGet packages that support it:
+
+| Project | Type | Description | Links |
+|---------|------|-------------|-------|
+| **NTools.API** (this) | REST API | Main API with controllers, business logic, and services | [GitHub](https://github.com/landim32/NTools.API) |
+| **NTools.DTO** | NuGet Package | Data Transfer Objects shared across the ecosystem | [NuGet](https://www.nuget.org/packages/NTools.DTO/) · [GitHub](https://github.com/landim32/NTools.DTO) |
+| **NTools.ACL** | NuGet Package | Anti-Corruption Layer — typed HTTP clients to consume the API | [NuGet](https://www.nuget.org/packages/NTools.ACL/) · [GitHub](https://github.com/landim32/NTools.ACL) |
+
+### Dependency Graph
+
+```
+NTools.API (Main REST API)
+├── NTools.API        → Controllers & HTTP configuration
+├── NTools.Application → Dependency injection setup
+├── NTools.Domain     → Business logic & services
+│   └── NTools.DTO    → DTOs & settings (NuGet)
+├── NTools.DTO        → DTOs & settings (NuGet)
+└── NTools.ACL        → HTTP clients (NuGet)
+    └── NTools.DTO    → DTOs & settings (NuGet)
+```
+
+> **Want to consume this API from another .NET project?** Install the [NTools.ACL](https://www.nuget.org/packages/NTools.ACL/) and [NTools.DTO](https://www.nuget.org/packages/NTools.DTO/) packages to get strongly-typed clients with full IntelliSense support.
+
 ## Environment Configuration
 
 Before running the application, you need to configure the environment variables:
@@ -390,10 +415,12 @@ NTools.API/
 └── NTools.Tests/         # Comprehensive test suite
 ```
 
-### NuGet Dependencies
+### NuGet Packages
 
-- **[NTools.DTO](https://www.nuget.org/packages/NTools.DTO/)** - Data Transfer Objects ([GitHub](https://github.com/landim32/NTools.DTO))
-- **[NTools.ACL](https://www.nuget.org/packages/NTools.ACL/)** - Anti-Corruption Layer clients ([GitHub](https://github.com/landim32/NTools.ACL))
+This API depends on two companion NuGet packages from the NTools ecosystem:
+
+- **[NTools.DTO](https://www.nuget.org/packages/NTools.DTO/)** `v0.2.2` - Data Transfer Objects ([GitHub](https://github.com/landim32/NTools.DTO))
+- **[NTools.ACL](https://www.nuget.org/packages/NTools.ACL/)** `v0.2.2` - Anti-Corruption Layer clients ([GitHub](https://github.com/landim32/NTools.ACL))
 
 ## Development
 
