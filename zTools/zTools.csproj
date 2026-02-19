@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- NuGet -->
+    <PackageId>zTools</PackageId>
+    <Version>0.3.0</Version>
+    <Authors>Rodrigo Landim</Authors>
+    <Company>Emagine</Company>
+    <Description>Unified zTools library combining Anti-Corruption Layer (ACL) clients and Data Transfer Objects (DTOs) for zTools API services. Provides strongly-typed HTTP clients for ChatGPT integration, email services, file storage, document validation, and string utilities, along with all required models, settings, and request/response objects.</Description>
+    <PackageTags>dotnet;nuget;acl;dto;http-client;api-client;chatgpt;openai;mailersend;email;s3;storage;document-validation;utilities;rest-api;typed-client;models;settings</PackageTags>
+    <RepositoryUrl>https://github.com/emaginebr/zTools.API</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>

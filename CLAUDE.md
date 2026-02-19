@@ -11,30 +11,30 @@ dotnet build
 dotnet test --configuration Release --collect:"XPlat Code Coverage"
 
 # Run a single test class
-dotnet test --filter "FullyQualifiedName~NTools.Tests.Domain.Utils.SlugHelperTest"
+dotnet test --filter "FullyQualifiedName~zTools.Tests.Domain.Utils.SlugHelperTest"
 
 # Run a single test method
-dotnet test --filter "FullyQualifiedName~NTools.Tests.Domain.Utils.SlugHelperTest.TestGenerateSlug"
+dotnet test --filter "FullyQualifiedName~zTools.Tests.Domain.Utils.SlugHelperTest.TestGenerateSlug"
 
 # Run the API locally (launches at https://localhost:9001/swagger)
-dotnet run --project NTools.API
+dotnet run --project zTools.API
 
 # Docker
 docker compose build
 docker compose up -d          # API at http://localhost:5001/swagger
-docker compose logs -f ntools-api
+docker compose logs -f zTools-api
 ```
 
 ## Architecture
 
 This is a .NET 8.0 REST API following **clean architecture** with four projects:
 
-- **NTools.API** — Controllers, HTTP configuration, Startup/Program. Controllers: `ChatGPTController`, `DocumentController`, `FileController`, `MailController`, `StringController`.
-- **NTools.Application** — DI wiring only. `Initializer.Configure()` registers all services. HttpClient factory pattern is used for HTTP-based services (`MailerSendService`, `ChatGPTService`); `FileService` is registered as scoped.
-- **NTools.Domain** — Business logic. `Services/` contains interface+implementation pairs (e.g., `IChatGPTService`/`ChatGPTService`). `Utils/` contains static utility classes (`DocumentUtils`, `EmailValidator`, `SlugHelper`, `StringUtils`, `ShuffleEx`).
-- **NTools.Tests** — xUnit tests with Moq. Mirrors domain structure under `Domain/Services/` and `Domain/Utils/`. Uses `Mock<HttpMessageHandler>` with `RichardSzalay.MockHttp` for HTTP service tests and `Mock<IOptions<T>>` for settings.
+- **zTools.API** — Controllers, HTTP configuration, Startup/Program. Controllers: `ChatGPTController`, `DocumentController`, `FileController`, `MailController`, `StringController`.
+- **zTools.Application** — DI wiring only. `Initializer.Configure()` registers all services. HttpClient factory pattern is used for HTTP-based services (`MailerSendService`, `ChatGPTService`); `FileService` is registered as scoped.
+- **zTools.Domain** — Business logic. `Services/` contains interface+implementation pairs (e.g., `IChatGPTService`/`ChatGPTService`). `Utils/` contains static utility classes (`DocumentUtils`, `EmailValidator`, `SlugHelper`, `StringUtils`, `ShuffleEx`).
+- **zTools.Tests** — xUnit tests with Moq. Mirrors domain structure under `Domain/Services/` and `Domain/Utils/`. Uses `Mock<HttpMessageHandler>` with `RichardSzalay.MockHttp` for HTTP service tests and `Mock<IOptions<T>>` for settings.
 
-External NuGet packages **NTools.DTO** and **NTools.ACL** provide shared DTOs and anti-corruption layer clients respectively.
+External NuGet packages **zTools.DTO** and **zTools.ACL** provide shared DTOs and anti-corruption layer clients respectively.
 
 ## Key Patterns
 

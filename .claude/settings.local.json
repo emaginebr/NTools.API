@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(git mv:*)",
+      "Bash(powershell:*)",
+      "Bash(del \"C:\\\\repos\\\\NTools\\\\NTools.API\\\\rename-script.ps1\")",
+      "Bash(dotnet restore:*)",
+      "Bash(dotnet build:*)",
+      "Bash(dotnet test:*)"
     ]
   }
 }

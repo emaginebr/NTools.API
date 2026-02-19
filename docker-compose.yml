@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  ntools-api:
+  ztools-api:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: ntools-api
+    container_name: ztools-api
     ports:
       - "5001:8080"
     environment:

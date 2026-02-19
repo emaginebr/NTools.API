@@ -1,42 +1,42 @@
-﻿# NTools API
+# zTools API
 
 ![.NET](https://img.shields.io/badge/.NET-8.0-blue)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=landim32_NTools.API&metric=alert_status)](https://sonarcloud.io/project/overview?id=landim32_NTools.API)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=landim32_NTools.API&metric=coverage)](https://sonarcloud.io/project/overview?id=landim32_NTools.API)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=landim32_NTools.API&metric=bugs)](https://sonarcloud.io/project/overview?id=landim32_NTools.API)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=landim32_NTools.API&metric=code_smells)](https://sonarcloud.io/project/overview?id=landim32_NTools.API)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=landim32_NTools.API&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=landim32_NTools.API)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=landim32_zTools.API&metric=alert_status)](https://sonarcloud.io/project/overview?id=landim32_zTools.API)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=landim32_zTools.API&metric=coverage)](https://sonarcloud.io/project/overview?id=landim32_zTools.API)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=landim32_zTools.API&metric=bugs)](https://sonarcloud.io/project/overview?id=landim32_zTools.API)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=landim32_zTools.API&metric=code_smells)](https://sonarcloud.io/project/overview?id=landim32_zTools.API)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=landim32_zTools.API&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=landim32_zTools.API)
 
 ## Overview
 
-NTools API is a comprehensive RESTful API service built with .NET 8 that provides a collection of utility tools and services for common development tasks. The API offers functionalities including document validation (CPF/CNPJ), email services, file management with S3-compatible storage, string manipulation utilities, and ChatGPT integration.
+zTools API is a comprehensive RESTful API service built with .NET 8 that provides a collection of utility tools and services for common development tasks. The API offers functionalities including document validation (CPF/CNPJ), email services, file management with S3-compatible storage, string manipulation utilities, and ChatGPT integration.
 
 The project follows a clean architecture approach with separated layers for API, Application, Domain, and comprehensive test coverage. The ACL (Anti-Corruption Layer) and DTOs are available as separate NuGet packages.
 
-## NTools Ecosystem
+## zTools Ecosystem
 
-NTools is composed of three projects that work together. **NTools.API** is the main project, and the other two are NuGet packages that support it:
+zTools is composed of three projects that work together. **zTools.API** is the main project, and the other two are NuGet packages that support it:
 
 | Project | Type | Description | Links |
 |---------|------|-------------|-------|
-| **NTools.API** (this) | REST API | Main API with controllers, business logic, and services | [GitHub](https://github.com/landim32/NTools.API) |
-| **NTools.DTO** | NuGet Package | Data Transfer Objects shared across the ecosystem | [NuGet](https://www.nuget.org/packages/NTools.DTO/) · [GitHub](https://github.com/landim32/NTools.DTO) |
-| **NTools.ACL** | NuGet Package | Anti-Corruption Layer — typed HTTP clients to consume the API | [NuGet](https://www.nuget.org/packages/NTools.ACL/) · [GitHub](https://github.com/landim32/NTools.ACL) |
+| **zTools.API** (this) | REST API | Main API with controllers, business logic, and services | [GitHub](https://github.com/landim32/zTools.API) |
+| **zTools.DTO** | NuGet Package | Data Transfer Objects shared across the ecosystem | [NuGet](https://www.nuget.org/packages/zTools.DTO/) � [GitHub](https://github.com/landim32/zTools.DTO) |
+| **zTools.ACL** | NuGet Package | Anti-Corruption Layer � typed HTTP clients to consume the API | [NuGet](https://www.nuget.org/packages/zTools.ACL/) � [GitHub](https://github.com/landim32/zTools.ACL) |
 
 ### Dependency Graph
 
 ```
-NTools.API (Main REST API)
-├── NTools.API        → Controllers & HTTP configuration
-├── NTools.Application → Dependency injection setup
-├── NTools.Domain     → Business logic & services
-│   └── NTools.DTO    → DTOs & settings (NuGet)
-├── NTools.DTO        → DTOs & settings (NuGet)
-└── NTools.ACL        → HTTP clients (NuGet)
-    └── NTools.DTO    → DTOs & settings (NuGet)
+zTools.API (Main REST API)
++-- zTools.API        ? Controllers & HTTP configuration
++-- zTools.Application ? Dependency injection setup
++-- zTools.Domain     ? Business logic & services
+�   +-- zTools.DTO    ? DTOs & settings (NuGet)
++-- zTools.DTO        ? DTOs & settings (NuGet)
++-- zTools.ACL        ? HTTP clients (NuGet)
+    +-- zTools.DTO    ? DTOs & settings (NuGet)
 ```
 
-> **Want to consume this API from another .NET project?** Install the [NTools.ACL](https://www.nuget.org/packages/NTools.ACL/) and [NTools.DTO](https://www.nuget.org/packages/NTools.DTO/) packages to get strongly-typed clients with full IntelliSense support.
+> **Want to consume this API from another .NET project?** Install the [zTools.ACL](https://www.nuget.org/packages/zTools.ACL/) and [zTools.DTO](https://www.nuget.org/packages/zTools.DTO/) packages to get strongly-typed clients with full IntelliSense support.
 
 ## Environment Configuration
 
@@ -49,8 +49,8 @@ Before running the application, you need to configure the environment variables:
 
 2. Edit the `.env` file and fill in your actual credentials:
     ```bash
-    # NTools API Configuration
-    NTOOLS_API_URL=http://*:80
+    # zTools API Configuration
+    zTools_API_URL=http://*:80
 
     # MailerSend Configuration
     MAILERSEND__MAILSENDER=your-email@example.com
@@ -68,11 +68,11 @@ Before running the application, you need to configure the environment variables:
     S3__ENDPOINT=https://your-space-name.nyc3.digitaloceanspaces.com
     ```
 
-    ⚠️ **IMPORTANT**: Never commit the `.env` file with real credentials. Only the `.env.example` should be version controlled.
+    ?? **IMPORTANT**: Never commit the `.env` file with real credentials. Only the `.env.example` should be version controlled.
 
 ## Docker Setup
 
-### Running NTools API with Docker
+### Running zTools API with Docker
 
 #### Build the Docker image
 ```bash
@@ -86,7 +86,7 @@ docker compose up -d
 
 #### View container logs
 ```bash
-docker compose logs -f ntools-api
+docker compose logs -f zTools-api
 ```
 
 #### Stop the container
@@ -136,7 +136,7 @@ After starting the container, the API will be available at:
 
 ## API Documentation
 
-The NTools API provides five main controllers with various endpoints for different utility functions.
+The zTools API provides five main controllers with various endpoints for different utility functions.
 
 ### Document Controller
 
@@ -408,19 +408,19 @@ Sends a custom ChatGPT request with full control over parameters.
 ## Project Structure
 
 ```
-NTools.API/
-├── NTools.API/           # Web API layer with controllers and configuration
-├── NTools.Application/   # Application layer with dependency injection setup
-├── NTools.Domain/        # Domain layer with business logic and services
-└── NTools.Tests/         # Comprehensive test suite
+zTools.API/
++-- zTools.API/           # Web API layer with controllers and configuration
++-- zTools.Application/   # Application layer with dependency injection setup
++-- zTools.Domain/        # Domain layer with business logic and services
++-- zTools.Tests/         # Comprehensive test suite
 ```
 
 ### NuGet Packages
 
-This API depends on two companion NuGet packages from the NTools ecosystem:
+This API depends on two companion NuGet packages from the zTools ecosystem:
 
-- **[NTools.DTO](https://www.nuget.org/packages/NTools.DTO/)** `v0.2.2` - Data Transfer Objects ([GitHub](https://github.com/landim32/NTools.DTO))
-- **[NTools.ACL](https://www.nuget.org/packages/NTools.ACL/)** `v0.2.2` - Anti-Corruption Layer clients ([GitHub](https://github.com/landim32/NTools.ACL))
+- **[zTools.DTO](https://www.nuget.org/packages/zTools.DTO/)** `v0.2.2` - Data Transfer Objects ([GitHub](https://github.com/landim32/zTools.DTO))
+- **[zTools.ACL](https://www.nuget.org/packages/zTools.ACL/)** `v0.2.2` - Anti-Corruption Layer clients ([GitHub](https://github.com/landim32/zTools.ACL))
 
 ## Development
 

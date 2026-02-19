@@ -1,7 +1,7 @@
 #!/bin/bash
-docker stop ntools-api1
-docker rm ntools-api1
-cd ./Backend/NTools
-docker build -t ntools-api -f ./NTools.API/Dockerfile .
-docker run --name ntools-api1 -e ASPNETCORE_URLS="https://+" -e ASPNETCORE_HTTPS_PORTS=443 --network docker-network ntools-api &
+docker stop ztools-api1
+docker rm ztools-api1
+cd ./Backend/zTools
+docker build -t ztools-api -f ./zTools.API/Dockerfile .
+docker run --name ztools-api1 -e ASPNETCORE_URLS="https://+" -e ASPNETCORE_HTTPS_PORTS=443 --network docker-network ztools-api &
 docker ps

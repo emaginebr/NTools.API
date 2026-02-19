@@ -53,7 +53,7 @@
 **/charts
 
 # Test files
-**/NTools.Tests/**
+**/zTools.Tests/**
 
 # Documentation and misc
 **/README.md
