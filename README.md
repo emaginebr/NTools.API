@@ -1,10 +1,10 @@
-# zTools API
+# zTools
 
 ![.NET](https://img.shields.io/badge/.NET-8.0-blue)
 
 ## Overview
 
-zTools API is a comprehensive RESTful API service built with .NET 8 that provides a collection of utility tools and services for common development tasks. The API offers functionalities including document validation (CPF/CNPJ), email services, file management with S3-compatible storage, string manipulation utilities, and ChatGPT integration.
+zTools is a comprehensive RESTful API service built with .NET 8 that provides a collection of utility tools and services for common development tasks. The API offers functionalities including document validation (CPF/CNPJ), email services, file management with S3-compatible storage, string manipulation utilities, and ChatGPT integration.
 
 The project follows a clean architecture approach with separated layers for API, Application, Domain, and comprehensive test coverage. The ACL (Anti-Corruption Layer) and DTOs are available as a unified NuGet package.
 
@@ -32,7 +32,7 @@ Before running the application, you need to configure the environment variables:
 
 2. Edit the `.env` file and fill in your actual credentials:
     ```bash
-    # zTools API Configuration
+    # zTools Configuration
     zTools_API_URL=http://*:80
 
     # MailerSend Configuration
@@ -55,7 +55,7 @@ Before running the application, you need to configure the environment variables:
 
 ## Docker Setup
 
-### Running zTools API with Docker
+### Running zTools with Docker
 
 #### Build the Docker image
 ```bash
@@ -119,7 +119,7 @@ After starting the container, the API will be available at:
 
 ## API Documentation
 
-The zTools API provides five main controllers with various endpoints for different utility functions.
+zTools provides five main controllers with various endpoints for different utility functions.
 
 ### Document Controller
 
@@ -391,7 +391,7 @@ Sends a custom ChatGPT request with full control over parameters.
 ## Project Structure
 
 ```
-zTools.API/
+zTools/
 +-- zTools.API/           # Web API layer with controllers and configuration
 +-- zTools.Application/   # Application layer with dependency injection setup
 +-- zTools.Domain/        # Domain layer with business logic and services
@@ -400,7 +400,7 @@ zTools.API/
 
 ### NuGet Package
 
-This API depends on a unified NuGet package from the zTools ecosystem:
+This project depends on a unified NuGet package from the zTools ecosystem:
 
 - **[zTools](https://www.nuget.org/packages/zTools/)** `v0.3.0` - Unified library combining ACL clients and DTOs ([GitHub](https://github.com/emaginebr/zTools))
 
