@@ -6,6 +6,7 @@ WORKDIR /src
 COPY ["NTools.API/NTools.API.csproj", "NTools.API/"]
 COPY ["NTools.Application/NTools.Application.csproj", "NTools.Application/"]
 COPY ["NTools.Domain/NTools.Domain.csproj", "NTools.Domain/"]
+COPY ["NTools/NTools.csproj", "NTools/"]
 
 RUN dotnet restore "NTools.API/NTools.API.csproj"
 
@@ -13,6 +14,7 @@ RUN dotnet restore "NTools.API/NTools.API.csproj"
 COPY ["NTools.API/", "NTools.API/"]
 COPY ["NTools.Application/", "NTools.Application/"]
 COPY ["NTools.Domain/", "NTools.Domain/"]
+COPY ["NTools/", "NTools/"]
 
 # Build the application (disable package generation for Docker build)
 WORKDIR "/src/NTools.API"
