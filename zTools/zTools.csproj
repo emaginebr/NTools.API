@@ -11,7 +11,7 @@
     <Company>Emagine</Company>
     <Description>Unified zTools library combining Anti-Corruption Layer (ACL) clients and Data Transfer Objects (DTOs) for zTools API services. Provides strongly-typed HTTP clients for ChatGPT integration, email services, file storage, document validation, and string utilities, along with all required models, settings, and request/response objects.</Description>
     <PackageTags>dotnet;nuget;acl;dto;http-client;api-client;chatgpt;openai;mailersend;email;s3;storage;document-validation;utilities;rest-api;typed-client;models;settings</PackageTags>
-    <RepositoryUrl>https://github.com/emaginebr/zTools.API</RepositoryUrl>
+    <RepositoryUrl>https://github.com/emaginebr/zTools</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReadmeFile>README.md</PackageReadmeFile>

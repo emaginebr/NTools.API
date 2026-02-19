@@ -13,7 +13,7 @@ This package was previously distributed as two separate packages (`zTools.ACL` a
 
 | Project | Type | Description | Links |
 |---------|------|-------------|-------|
-| **zTools.API** | REST API | Main API with controllers, business logic, and services | [GitHub](https://github.com/landim32/zTools.API) |
+| **zTools.API** | REST API | Main API with controllers, business logic, and services | [GitHub](https://github.com/emaginebr/zTools) |
 | **zTools** (this) | NuGet Package | ACL clients + DTOs for consuming the API | [NuGet](https://www.nuget.org/packages/zTools/) |
 
 ## Features
@@ -190,8 +190,8 @@ var email = new MailerInfo
 
 ## Repository
 
-- **GitHub**: [https://github.com/landim32/zTools.API](https://github.com/landim32/zTools.API)
-- **Issues**: [https://github.com/landim32/zTools.API/issues](https://github.com/landim32/zTools.API/issues)
+- **GitHub**: [https://github.com/emaginebr/zTools](https://github.com/emaginebr/zTools)
+- **Issues**: [https://github.com/emaginebr/zTools/issues](https://github.com/emaginebr/zTools/issues)
 
 ## License
 

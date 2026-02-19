@@ -1,42 +1,25 @@
 # zTools API
 
 ![.NET](https://img.shields.io/badge/.NET-8.0-blue)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=landim32_zTools.API&metric=alert_status)](https://sonarcloud.io/project/overview?id=landim32_zTools.API)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=landim32_zTools.API&metric=coverage)](https://sonarcloud.io/project/overview?id=landim32_zTools.API)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=landim32_zTools.API&metric=bugs)](https://sonarcloud.io/project/overview?id=landim32_zTools.API)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=landim32_zTools.API&metric=code_smells)](https://sonarcloud.io/project/overview?id=landim32_zTools.API)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=landim32_zTools.API&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=landim32_zTools.API)
 
 ## Overview
 
 zTools API is a comprehensive RESTful API service built with .NET 8 that provides a collection of utility tools and services for common development tasks. The API offers functionalities including document validation (CPF/CNPJ), email services, file management with S3-compatible storage, string manipulation utilities, and ChatGPT integration.
 
-The project follows a clean architecture approach with separated layers for API, Application, Domain, and comprehensive test coverage. The ACL (Anti-Corruption Layer) and DTOs are available as separate NuGet packages.
-
-## zTools Ecosystem
-
-zTools is composed of three projects that work together. **zTools.API** is the main project, and the other two are NuGet packages that support it:
-
-| Project | Type | Description | Links |
-|---------|------|-------------|-------|
-| **zTools.API** (this) | REST API | Main API with controllers, business logic, and services | [GitHub](https://github.com/landim32/zTools.API) |
-| **zTools.DTO** | NuGet Package | Data Transfer Objects shared across the ecosystem | [NuGet](https://www.nuget.org/packages/zTools.DTO/) · [GitHub](https://github.com/landim32/zTools.DTO) |
-| **zTools.ACL** | NuGet Package | Anti-Corruption Layer — typed HTTP clients to consume the API | [NuGet](https://www.nuget.org/packages/zTools.ACL/) · [GitHub](https://github.com/landim32/zTools.ACL) |
+The project follows a clean architecture approach with separated layers for API, Application, Domain, and comprehensive test coverage. The ACL (Anti-Corruption Layer) and DTOs are available as a unified NuGet package.
 
 ### Dependency Graph
 
 ```
 zTools.API (Main REST API)
-+-- zTools.API        ? Controllers & HTTP configuration
-+-- zTools.Application ? Dependency injection setup
-+-- zTools.Domain     ? Business logic & services
-¦   +-- zTools.DTO    ? DTOs & settings (NuGet)
-+-- zTools.DTO        ? DTOs & settings (NuGet)
-+-- zTools.ACL        ? HTTP clients (NuGet)
-    +-- zTools.DTO    ? DTOs & settings (NuGet)
++-- zTools.API        â†’ Controllers & HTTP configuration
++-- zTools.Application â†’ Dependency injection setup
++-- zTools.Domain     â†’ Business logic & services
+â”‚   +-- zTools        â†’ ACL clients & DTOs (NuGet)
++-- zTools            â†’ ACL clients & DTOs (NuGet)
 ```
 
-> **Want to consume this API from another .NET project?** Install the [zTools.ACL](https://www.nuget.org/packages/zTools.ACL/) and [zTools.DTO](https://www.nuget.org/packages/zTools.DTO/) packages to get strongly-typed clients with full IntelliSense support.
+> **Want to consume this API from another .NET project?** Install the [zTools](https://www.nuget.org/packages/zTools/) package to get strongly-typed clients and DTOs with full IntelliSense support.
 
 ## Environment Configuration
 
@@ -68,7 +51,7 @@ Before running the application, you need to configure the environment variables:
     S3__ENDPOINT=https://your-space-name.nyc3.digitaloceanspaces.com
     ```
 
-    ?? **IMPORTANT**: Never commit the `.env` file with real credentials. Only the `.env.example` should be version controlled.
+    **IMPORTANT**: Never commit the `.env` file with real credentials. Only the `.env.example` should be version controlled.
 
 ## Docker Setup
 
@@ -415,12 +398,11 @@ zTools.API/
 +-- zTools.Tests/         # Comprehensive test suite
 ```
 
-### NuGet Packages
+### NuGet Package
 
-This API depends on two companion NuGet packages from the zTools ecosystem:
+This API depends on a unified NuGet package from the zTools ecosystem:
 
-- **[zTools.DTO](https://www.nuget.org/packages/zTools.DTO/)** `v0.2.2` - Data Transfer Objects ([GitHub](https://github.com/landim32/zTools.DTO))
-- **[zTools.ACL](https://www.nuget.org/packages/zTools.ACL/)** `v0.2.2` - Anti-Corruption Layer clients ([GitHub](https://github.com/landim32/zTools.ACL))
+- **[zTools](https://www.nuget.org/packages/zTools/)** `v0.3.0` - Unified library combining ACL clients and DTOs ([GitHub](https://github.com/emaginebr/zTools))
 
 ## Development
 
@@ -437,4 +419,4 @@ This project is licensed under the terms specified in the repository.
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request.
